@@ -1,0 +1,317 @@
+//variables
+@import "utilities/variables";
+
+//aplicando mixins
+@mixin footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: map-get($colores, color-footer);
+    height: 5em;
+}
+
+@mixin titulos {
+    color: map-get($colores, color-textos2);
+    background-color: map-get($colores, color-fondotextos);
+    padding: 0.3em;
+    margin-top: 0.8em;
+    font-size: 2em;
+}
+
+body {
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 100vh;
+    background-color: map-get($colores, color-fondo);
+    overflow-x: hidden;
+}
+
+.grid-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.2fr 0.2fr;
+    grid-template-areas:
+        "header header header"
+        "main main main"}
+
+        /*estilos header index*/
+        .header{
+            grid-area: header;
+            width: 100%;
+            text-align: $centrado;
+            h1{
+                @include titulos()
+            }
+            .parrafos{
+                display: flex;
+                justify-content: space-around;
+                background-color: map-get($colores, color-fondotextos);
+                color: map-get($colores, color-textos2);
+                font-size: 1.5em;
+                margin-top: 1.2em;
+                padding: 0.5em;
+                padding-top: 1em;
+            }
+            div{
+                img{
+                    margin-top: $margenes;
+                    width: 100%;
+                    height: 100%;
+                }
+            }   
+        }
+
+        /*estilos main index*/
+        .main{
+            grid-area: main;
+            display: flex;
+            margin-top: 2.5em;
+            margin-bottom: 3em;
+            .card{
+                width: 100%;
+                margin: 20px;
+                border-radius: 6px;
+                overflow: hidden;
+                background: map-get($colores, color-cards);
+                box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+                transition: all 400ms ease-out;
+                .contenido-card{
+                    padding: 15px;
+                    text-align: $centrado;
+                    h2{
+                        margin-bottom: 2.5em;
+                        color: map-get($colores, color-textos1);
+                    }
+                    %boton{
+                        display: inline-block;
+                        padding: 10px;
+                        margin-top: 10px;
+                        text-decoration: none;
+                        border-radius: 4px;
+                        transition: all 400ms ease;
+                        margin-bottom: 5px;
+                    }
+                    //aplicando extend
+                    .botones{
+                        @extend %boton;
+                        color: map-get($colores, color-principal);
+                        border: 1px solid map-get($colores, color-principal);
+                    }
+                    a:hover{
+                        background: map-get($colores, color-secundario);
+                        color: map-get($colores, color-cards);
+                    }
+                    h1{
+                        column-rule:black;
+                    }
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            } 
+            .card:hover{
+                box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+                transform: translateY(-3%);
+            } 
+        }
+
+/*estilos de navbar general*/
+nav{
+    background-color: map-get($colores, color-principal);
+    border-bottom: $bordes-inferiores;
+    div{
+        .navbar-brand{
+            transition: 0.5s;
+        }
+        .navbar-brand:hover{
+            transform: scale(1.2);
+        }
+            a{
+                img{
+                    height: 100px;
+                    width: 150px;
+                    margin-left: $margenes;
+                }
+            }
+    }
+    .nav-item{
+        font-weight: bold;
+        padding: 1em;
+    }
+    .nav-item:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+}
+
+/*nosotros*/
+.main-nosotros{
+    h1{
+        text-align: $centrado;
+        margin-bottom: 1em;
+        @include titulos()
+    }
+    div{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: map-get($colores, color-fondotextos);
+        div{
+            display: block;
+            p{
+                margin-top: 1em;
+                color: map-get($colores, color-textos2);
+                padding: 0.5em;
+                letter-spacing: 0.1em;
+            }
+        }
+    }
+}
+
+/*productos*/
+.main-productos{
+    h1{
+        text-align: $centrado;
+        @include titulos()
+    }
+}
+
+/*galeria*/
+.main-galeria{
+    h1{
+        text-align: $centrado;
+        @include titulos()
+    }
+    margin-bottom: 5em;
+}
+.fila{
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    .columna{
+        flex: 25%;
+        padding: 5px;
+        img{
+            width: 100%;
+            margin-top: 5px
+        }
+    }
+}
+
+/*contacto*/
+.main-contacto{
+    margin-bottom: 2.5em;
+    h1{
+        text-align: $centrado;
+        @include titulos()     
+    }
+    form{
+        width: 400px;
+        margin: auto;
+        padding: 10px 20px;
+        margin-top: 30px;
+        label{
+            display: flex;
+            justify-content: $centrado;
+            margin: 1em;
+            color: map-get($colores, color-textos1);
+        }
+        div{
+            text-align: $centrado;
+            font-size: 50px;
+            letter-spacing: 0.2em;
+            a{
+                text-decoration: none;
+                color: map-get($colores, color-textos1);
+                .bi-whatsapp:hover{
+                    color: #128c7e;
+                }
+                .bi-instagram:hover{
+                    color: #C13584;
+                }
+                .bi-facebook:hover{
+                    color: #0d6efd;
+                }
+            }
+        }
+        input, textarea{
+            font-size: 15px;
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 7px;
+            border: 1px solid black;
+        }
+        textarea{
+            min-height: 200px;
+            max-height: 200px;
+            max-width: 100%;   
+        }
+    }
+}
+
+/*footer*/
+//footer con include de mixin
+.footer{ 
+    @include footer();
+    p{
+        text-align: $centrado;
+        margin: $margenes;
+        color: map-get($colores, color-textos2);
+        font-weight: bold ;
+    }
+}
+
+@media only screen and (max-width:425px){
+    .header{
+        h1{
+            margin-top: $margenes;
+            font-size: 1.5em;
+        }
+        .parrafos{
+            margin-top: 10em;
+            p{
+                font-size: 0.8em;
+            }
+        }
+    }
+    .main{
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width:800px){
+    .header{
+        h1{
+            font-size: 1.5em;
+        }
+        .parrafos{
+            margin-bottom: 10em;
+            font-size: 1em;
+        }
+    }
+    .main{
+        flex-wrap: wrap;
+    }
+    .main-nosotros{
+        h1{
+            font-size: 1.5em;
+            margin-bottom: 0.8em;
+        }
+        div{
+            flex-wrap: wrap;
+            text-align: $centrado;
+            margin-bottom: 0.5em;
+            p{
+               margin: 3em;
+            }
+        }
+    }
+    .main-galeria{
+        .fila{
+            .columna{
+                flex: 100%;
+            }
+        }
+    }
+}
+

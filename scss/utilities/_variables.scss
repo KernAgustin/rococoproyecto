@@ -1,0 +1,30 @@
+/*fuente general*/
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+//colores aplicado con maps
+$colores: (
+    color-principal: #44a970e0,
+    color-secundario: #1E8449,
+    color-fondo: #d0d0d0,
+    color-textos1: #5a5a5a,
+    color-textos2: #d0d0d0,
+    color-fondotextos: #5a5a5a,
+    color-cards: #fff,
+    color-footer: black
+);
+
+//centrado
+$centrado: center;
+
+//margenes
+$margenes: 1em;
+
+$margin-parrafos: 2.5em;
+
+//bordes
+
+$bordes-inferiores: 2px solid map-get($colores, color-secundario);
+
+
