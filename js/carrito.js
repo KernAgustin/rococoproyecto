@@ -7,7 +7,7 @@ function realizarCompra()
          {Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Tu compra ha sido realizada! Para terminar de concretar el envio del producto y el pago, contactate con el siguiente numero: +54 9 3364 60-7243. Muchas gracias!',
+            title: 'Tu compra ha sido realizada! Para terminar de concretar el envio del producto y el pago, contactate con el siguiente numero: +54 9 3364 34-9150. Muchas gracias!',
             showConfirmButton: true,
           })
                 guardarLocal("listaMacetas", JSON.stringify([]));
